@@ -12,10 +12,18 @@ export default function Home() {
   return (
     <main className={styles.main}>
       {contentItems.map((el) => {
-        return <ContentItem index={el} setViewInfoIndex={setViewInfoIndex} />
+        return (
+          <ContentItem
+            key={el}
+            index={el}
+            setViewInfoIndex={setViewInfoIndex}
+          />
+        )
       })}
       {contentItems.map((el) => {
-        return <ProjectInfo isShowing={viewInfoIndex == el} index={el} />
+        return (
+          <ProjectInfo key={el} isShowing={viewInfoIndex == el} index={el} />
+        )
       })}
     </main>
   )
