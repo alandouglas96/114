@@ -37,6 +37,7 @@ export default function ContentItem({ index, setViewInfoIndex }) {
           position: 'relative',
           top: '25px',
           transform: `rotate(${(isHover ? 260 : 270) + (index % 3) * 10}deg)`,
+          transition: 'all 0.2s ease-in-out',
         }}
       >
         114

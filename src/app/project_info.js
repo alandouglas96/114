@@ -6,7 +6,8 @@ export default function ProjectInfo({ isShowing, index }) {
   return (
     <div
       style={{
-        display: isShowing ? 'block' : 'none',
+        opacity: isShowing ? '100%' : '0%',
+        transition: 'all 0.2s ease-in-out',
       }}
       className={styles.projectInfo}
     >
