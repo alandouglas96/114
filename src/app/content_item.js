@@ -26,13 +26,15 @@ export default function ContentItem({ index, setViewInfoIndex }) {
     >
       <div
         style={{
+          color: 'black',
+          fontSize: '14px',
+          fontFamily: 'simplon-mono-medium',
           width: '50px',
           height: '20px',
-          backgroundColor: 'white',
+          backgroundColor: '#dcd4be',
           zIndex: '50',
           textAlign: 'center',
           position: 'relative',
-          // left: '-110px',
           top: '25px',
           transform: `rotate(${(isHover ? 260 : 270) + (index % 3) * 10}deg)`,
         }}
