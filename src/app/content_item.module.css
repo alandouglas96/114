@@ -1,0 +1,15 @@
+.contentItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 70px;
+  width: 420px;
+  background-color: aqua;
+  border: solid rgb(255, 229, 144) 1px;
+  margin: 8px;
+}
+
+.contentItem:hover {
+  border: solid pink 1px;
+}
