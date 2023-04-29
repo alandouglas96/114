@@ -6,13 +6,41 @@ function ProjectInfo({ isShowing, index }) {
   return (
     <div
       style={{
-        opacity: true ? '100%' : '0%',
+        opacity: isShowing ? '100%' : '0%',
         transition: 'all 0.2s ease-in-out',
       }}
       className={styles.projectInfo}
     >
-      THIS IS THE PROJECT INFO for: {index}
-      <Image src={gif} alt="Iberia gif" height={100} />
+      <p style={{ marginBottom: '30px' }}>nikeSB x eldiadedespues</p>
+      <p style={{ marginBottom: '20px' }}>sonido en directo</p>
+      <hr
+        style={{
+          width: '50%',
+          height: '1px',
+          border: 'none',
+          backgroundColor: 'black',
+          marginBottom: '20px',
+        }}
+      />
+      <p>production @radicalmedia</p>
+      <p>creative Direction</p>
+      <p>@lookstudiosnyc</p>
+      <p>director @molliemills</p>
+      <p>DP @polgsala</p>
+      <p> edit @rorcarrot</p>
+      <p>animation @ana.projects</p>
+      <p>music @lilyoakesmusic</p>
+
+      <Image
+        src={gif}
+        alt="Iberia gif"
+        style={{
+          width: '100%',
+          height: 'auto',
+          borderRadius: '5px',
+          marginTop: '40px',
+        }}
+      />
     </div>
   )
 }

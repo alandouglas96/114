@@ -14,9 +14,9 @@ const contentItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 const contentPreviews = [1]
 
 export default function Home() {
+  const contentSectionRef = useRef(null)
+
   const [viewInfoIndex, setViewInfoIndex] = useState(0)
-  // TESTINGAL
-  const pathname = usePathname()
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -24,19 +24,15 @@ export default function Home() {
     rootMargin: '-10px',
   })
 
-  const myRef = useRef(null)
-
   const executeScroll = () =>
-    myRef.current.scrollIntoView({ behavior: 'smooth' })
+    contentSectionRef.current.scrollIntoView({ behavior: 'smooth' })
 
   useEffect(() => {
-    // TESTINGAL
     if (window && window.location.hash) {
       executeScroll()
     }
   })
 
-  console.log(entry)
   return (
     <div>
       <Navigation headerInView={inView} executeScroll={executeScroll} />
@@ -46,9 +42,13 @@ export default function Home() {
         </div>
         {/* <ContentSection /> TESTINGAL*/}
 
-        <div id="first-section" ref={myRef} className={styles.contentSection}>
+        <div
+          id="first-section"
+          ref={contentSectionRef}
+          className={styles.contentSection}
+        >
           <div className={styles.contentPreview}>
-            {contentPreviews.map((el) => {
+            {contentItems.map((el) => {
               return (
                 <ProjectInfo
                   key={el}
@@ -70,7 +70,7 @@ export default function Home() {
             })}
           </div>
           <div className={styles.contentPreview}>
-            {contentPreviews.map((el) => {
+            {contentItems.map((el) => {
               return (
                 <ProjectInfo
                   key={el}

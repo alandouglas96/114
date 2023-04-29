@@ -25,6 +25,7 @@ function Cassette({ index, setViewInfoIndex }) {
       className={styles.contentItem}
     >
       <div
+        // TESTINGAL -> Set styles in file?
         style={{
           color: 'black',
           fontSize: '14px',
@@ -38,6 +39,9 @@ function Cassette({ index, setViewInfoIndex }) {
           top: '25px',
           transform: `rotate(${(isHover ? 260 : 270) + (index % 3) * 10}deg)`,
           transition: 'all 0.2s ease-in-out',
+          borderRadius: '5px',
+          verticalAlign: 'middle',
+          lineHeight: '20px',
         }}
       >
         114

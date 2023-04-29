@@ -25,5 +25,7 @@
 .contentPreview {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 0px;
+  top: 179px;
+  height: 500px;
+  margin: 60px 40px;
 }
