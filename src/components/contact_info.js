@@ -10,6 +10,7 @@ function ContactInfo({ isOpen, closeContact }) {
       className={styles.contactInfo}
       style={{
         display: 'block',
+        opacity: isOpen ? '100%' : '0%',
         bottom: isOpen ? '0' : '-1000px',
         transition: 'all 0.5s ease-in-out',
       }}

@@ -24,6 +24,7 @@ export default function Home() {
     if (isContactOpen) setIsContactOpen(false)
     else {
       setIsContactOpen(true)
+      console.log('EXECUTING THIS SCROLL 1')
       executeScroll()
     }
   }
@@ -37,9 +38,13 @@ export default function Home() {
   const executeScroll = () =>
     contentSectionRef.current.scrollIntoView({ behavior: 'smooth' })
 
+  const [scrollExecuted, setSrollExecuted] = useState(false)
+
   useEffect(() => {
-    if (window && window.location.hash) {
+    if (!scrollExecuted && window && window.location.hash) {
+      console.log('EXECUTING THIS SCROLL 2')
       executeScroll()
+      setSrollExecuted(true)
     }
   })
 

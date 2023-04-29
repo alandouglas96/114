@@ -12,6 +12,7 @@
   padding-bottom: 150px;
   position: relative;
   scroll-snap-align: start;
+  overflow-y: hidden;
 }
 
 .cassettes {
