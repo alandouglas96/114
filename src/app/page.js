@@ -24,7 +24,6 @@ export default function Home() {
     if (isContactOpen) setIsContactOpen(false)
     else {
       setIsContactOpen(true)
-      console.log('EXECUTING THIS SCROLL 1')
       executeScroll()
     }
   }
@@ -42,7 +41,6 @@ export default function Home() {
 
   useEffect(() => {
     if (!scrollExecuted && window && window.location.hash) {
-      console.log('EXECUTING THIS SCROLL 2')
       executeScroll()
       setSrollExecuted(true)
     }
@@ -55,7 +53,6 @@ export default function Home() {
         <div ref={ref}>
           <Header />
         </div>
-        {/* <ContentSection /> TESTINGAL*/}
 
         <div
           id="first-section"

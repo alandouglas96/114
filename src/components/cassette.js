@@ -25,7 +25,6 @@ function Cassette({ index, setViewInfoIndex }) {
       className={styles.contentItem}
     >
       <div
-        // TESTINGAL -> Set styles in file?
         style={{
           color: 'black',
           fontSize: '14px',
