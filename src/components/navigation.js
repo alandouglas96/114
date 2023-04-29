@@ -10,8 +10,7 @@ import { usePathname } from 'next/navigation'
 
 const IMG_SIZE = 25
 
-function Navigation({ headerInView, executeScroll, redirect }) {
-  // TESTINGAL -> Condition "The Sound" behaviour with pathname
+function Navigation({ headerInView, executeScroll }) {
   const pathname = usePathname()
   return (
     <div className={styles.navigation}>
@@ -49,8 +48,16 @@ function Navigation({ headerInView, executeScroll, redirect }) {
             </>
           ) : (
             <>
-              <div onClick={executeScroll}>The Sound</div>
-              <div onClick={executeScroll}>
+              <div
+                onClick={executeScroll}
+                className={styles.theSoundHomeSelector}
+              >
+                The Sound
+              </div>
+              <div
+                onClick={executeScroll}
+                className={styles.theSoundHomeSelector}
+              >
                 <Image
                   src={portRedImg}
                   alt="The Sound"

@@ -8,6 +8,7 @@ function ProjectInfo({ isShowing, index }) {
       style={{
         opacity: isShowing ? '100%' : '0%',
         transition: 'all 0.2s ease-in-out',
+        textAlign: 'center',
       }}
       className={styles.projectInfo}
     >

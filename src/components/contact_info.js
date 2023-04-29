@@ -1,14 +1,32 @@
 import Image from 'next/image'
 import contactCasetteImg from '../../public/contact-casette.png'
+import { RxCross2 } from 'react-icons/rx'
 
-function ContactInfo() {
+import styles from './contact_info.module.css'
+
+function ContactInfo({ isOpen, closeContact }) {
   return (
-    <div className={styles.contactInfo}>
-      <p>114thesoundstudio@gmail.com</p>
-      <p>+34 659 66 90 90</p>
-      <p>@114thesoundstudio</p>
-      <p>Balmes street 47, 3o 1a 08004</p>
-      <Image src={contactCasetteImg} alt="The Sound" width={649} height={429} />
+    <div
+      className={styles.contactInfo}
+      style={{
+        display: isOpen ? 'block' : 'none',
+      }}
+    >
+      <RxCross2 size={25} className={styles.cross} onClick={closeContact} />
+      <div className={styles.contactInfoText}>
+        <p style={{ marginBottom: '25px' }}>114thesoundstudio@gmail.com</p>
+        <p style={{ marginBottom: '25px' }}>+34 659 66 90 90</p>
+        <p style={{ marginBottom: '25px' }}>@114thesoundstudio</p>
+        <p style={{ marginBottom: '25px' }}>Balmes street 47, 3o 1a 08004</p>
+      </div>
+      <Image
+        src={contactCasetteImg}
+        alt="The Sound"
+        style={{
+          width: '100%',
+          height: 'auto',
+        }}
+      />
     </div>
   )
 }

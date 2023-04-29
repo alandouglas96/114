@@ -1,12 +1,13 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
+
 import { Header } from '@/components/header'
 import { Cassette } from '@/components/cassette'
 import { ProjectInfo } from '@/components/project_info'
-import { useInView } from 'react-intersection-observer'
 import { Navigation } from '@/components/navigation'
-import { usePathname } from 'next/navigation'
+import { ContactInfo } from '@/components/contact_info'
 
 import styles from './page.module.css'
 
@@ -17,6 +18,15 @@ export default function Home() {
   const contentSectionRef = useRef(null)
 
   const [viewInfoIndex, setViewInfoIndex] = useState(0)
+  const [isContactOpen, setIsContactOpen] = useState(false)
+
+  const toggleCallMe = () => {
+    if (isContactOpen) setIsContactOpen(false)
+    else {
+      setIsContactOpen(true)
+      executeScroll()
+    }
+  }
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -79,7 +89,11 @@ export default function Home() {
                 />
               )
             })}
+            <ContactInfo isOpen={isContactOpen} closeContact={toggleCallMe} />
           </div>
+        </div>
+        <div onClick={toggleCallMe} className={styles.callMe}>
+          CALL ME 🙂
         </div>
       </main>
     </div>
