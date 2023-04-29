@@ -18,7 +18,7 @@ function Cassette({ index, setViewInfoIndex }) {
 
   return (
     <Link
-      href={`/project/${index}`}
+      href="/"
       data-index={index}
       onMouseOver={handleOnMouseOver}
       onMouseLeave={handleOnMouseLeave}

@@ -4,10 +4,11 @@ import { useState, useRef, useEffect } from 'react'
 import { Header } from '@/components/header'
 import { Cassette } from '@/components/cassette'
 import { ProjectInfo } from '@/components/project_info'
-import styles from './page.module.css'
 import { useInView } from 'react-intersection-observer'
 import { Navigation } from '@/components/navigation'
 import { usePathname } from 'next/navigation'
+
+import styles from './page.module.css'
 
 const contentItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 const contentPreviews = [1]
@@ -29,11 +30,13 @@ export default function Home() {
     myRef.current.scrollIntoView({ behavior: 'smooth' })
 
   useEffect(() => {
-    if (window.location.hash) {
+    // TESTINGAL
+    if (window && window.location.hash) {
       executeScroll()
     }
-  }, [window.location.hash])
+  })
 
+  console.log(entry)
   return (
     <div>
       <Navigation headerInView={inView} executeScroll={executeScroll} />
