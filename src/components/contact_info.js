@@ -9,7 +9,9 @@ function ContactInfo({ isOpen, closeContact }) {
     <div
       className={styles.contactInfo}
       style={{
-        display: isOpen ? 'block' : 'none',
+        display: 'block',
+        bottom: isOpen ? '0' : '-1000px',
+        transition: 'all 0.5s ease-in-out',
       }}
     >
       <RxCross2 size={25} className={styles.cross} onClick={closeContact} />

@@ -92,6 +92,7 @@ export default function Home() {
             <ContactInfo isOpen={isContactOpen} closeContact={toggleCallMe} />
           </div>
         </div>
+
         <div onClick={toggleCallMe} className={styles.callMe}>
           CALL ME 🙂
         </div>
