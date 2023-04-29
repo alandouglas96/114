@@ -2,11 +2,11 @@ import Image from 'next/image'
 import gif from '../../public/iberia_1.gif'
 import styles from './project_info.module.css'
 
-export default function ProjectInfo({ isShowing, index }) {
+function ProjectInfo({ isShowing, index }) {
   return (
     <div
       style={{
-        opacity: isShowing ? '100%' : '0%',
+        opacity: true ? '100%' : '0%',
         transition: 'all 0.2s ease-in-out',
       }}
       className={styles.projectInfo}
@@ -16,3 +16,5 @@ export default function ProjectInfo({ isShowing, index }) {
     </div>
   )
 }
+
+export { ProjectInfo }

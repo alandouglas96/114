@@ -1,30 +1,84 @@
 'use client'
 
-import { useState } from 'react'
-import ContentItem from './content_item.js'
-import ProjectInfo from './project_info.js'
+import { useState, useRef, useEffect } from 'react'
+import { Header } from '@/components/header'
+import { Cassette } from '@/components/cassette'
+import { ProjectInfo } from '@/components/project_info'
 import styles from './page.module.css'
+import { useInView } from 'react-intersection-observer'
+import { Navigation } from '@/components/navigation'
+import { usePathname } from 'next/navigation'
 
 const contentItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+const contentPreviews = [1]
 
 export default function Home() {
   const [viewInfoIndex, setViewInfoIndex] = useState(0)
+  // TESTINGAL
+  const pathname = usePathname()
+
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+    rootMargin: '-10px',
+  })
+
+  const myRef = useRef(null)
+
+  const executeScroll = () =>
+    myRef.current.scrollIntoView({ behavior: 'smooth' })
+
+  useEffect(() => {
+    if (window.location.hash) {
+      executeScroll()
+    }
+  }, [window.location.hash])
+
   return (
-    <main className={styles.main}>
-      {contentItems.map((el) => {
-        return (
-          <ContentItem
-            key={el}
-            index={el}
-            setViewInfoIndex={setViewInfoIndex}
-          />
-        )
-      })}
-      {contentItems.map((el) => {
-        return (
-          <ProjectInfo key={el} isShowing={viewInfoIndex == el} index={el} />
-        )
-      })}
-    </main>
+    <div>
+      <Navigation headerInView={inView} executeScroll={executeScroll} />
+      <main className={styles.main}>
+        <div ref={ref}>
+          <Header />
+        </div>
+        {/* <ContentSection /> TESTINGAL*/}
+
+        <div id="first-section" ref={myRef} className={styles.contentSection}>
+          <div className={styles.contentPreview}>
+            {contentPreviews.map((el) => {
+              return (
+                <ProjectInfo
+                  key={el}
+                  isShowing={viewInfoIndex == el}
+                  index={el}
+                />
+              )
+            })}
+          </div>
+          <div className={styles.cassettes}>
+            {contentItems.map((el) => {
+              return (
+                <Cassette
+                  key={el}
+                  index={el}
+                  setViewInfoIndex={setViewInfoIndex}
+                />
+              )
+            })}
+          </div>
+          <div className={styles.contentPreview}>
+            {contentPreviews.map((el) => {
+              return (
+                <ProjectInfo
+                  key={el}
+                  isShowing={viewInfoIndex == el}
+                  index={el}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </main>
+    </div>
   )
 }

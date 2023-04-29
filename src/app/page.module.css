@@ -1,10 +1,29 @@
 .main {
+  height: 100vh;
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+}
+
+.contentSection {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.cassettes {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
-  margin: 150px auto;
-  width: 540px;
-  position: relative;
+  width: 100%;
+}
+
+.contentPreview {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0px;
 }

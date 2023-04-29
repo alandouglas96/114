@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import styles from './content_item.module.css'
+import styles from './cassette.module.css'
 
-export default function ContentItem({ index, setViewInfoIndex }) {
+function Cassette({ index, setViewInfoIndex }) {
   const [isHover, setIsHover] = useState(false)
 
   const handleOnMouseOver = (e) => {
@@ -46,3 +46,5 @@ export default function ContentItem({ index, setViewInfoIndex }) {
     </Link>
   )
 }
+
+export { Cassette }

@@ -1,6 +1,8 @@
 .contentItem {
+  display: block;
   height: 70px;
-  width: 420px;
+  width: 100%;
+  max-width: 450px;
   background-color: rgb(238, 238, 238);
   margin: 8px;
   text-align: center;
