@@ -2,7 +2,7 @@ import './cassette_ilustration.css'
 
 function CassetteIlustration() {
   return (
-    <div style={{ height: '100vh', width: '100%', marginTop: '100px' }}>
+    <div style={{ marginTop: '100px' }}>
       <link
         href="https://fonts.googleapis.com/css?family=Lato:900,400|Shadows+Into+Light"
         rel="stylesheet"
@@ -24,10 +24,10 @@ function CassetteIlustration() {
         <div className="stickerOuter">
           <div className="sticker">
             <span className="a-side">A</span>
-            <p className="cursive">My Best Mixtape!</p>
+            <p className="cursive">The Sound Studio</p>
             <span className="stripe" />
-            <span className="c90">D-C90</span>
-            <span className="logo">T.F.H.®</span>
+            <span className="c90">114</span>
+            <span className="logo">From BCN</span>
             <div className="middle clearfix">
               <span className="circle one">
                 <span className="teethBox">

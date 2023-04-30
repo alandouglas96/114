@@ -6,8 +6,9 @@ export default function Studio() {
   return (
     <div>
       <Navigation headerInView={false} />
-      <div className={styles.main}>STUDIO PAGE</div>
-      <CassetteIlustration />
+      <div className={styles.main}>
+        STUDIO PAGE <CassetteIlustration />
+      </div>
     </div>
   )
 }
