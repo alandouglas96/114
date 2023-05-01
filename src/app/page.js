@@ -10,16 +10,12 @@ import { ProjectInfo } from '@/components/project_info'
 import { Navigation } from '@/components/navigation'
 import { ContactInfo } from '@/components/contact_info'
 
-import { motion, useScroll } from 'framer-motion'
-
 import styles from './page.module.css'
 
 const contentItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-const contentPreviews = [1]
+// const contentPreviews = [1]
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
-
   const contentSectionRef = useRef(null)
 
   const [viewInfoIndex, setViewInfoIndex] = useState(0)
@@ -40,8 +36,9 @@ export default function Home() {
     }
   }
 
-  const executeScroll = () =>
+  const executeScroll = () => {
     contentSectionRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
 
   const [scrollExecuted, setSrollExecuted] = useState(false)
 
@@ -52,15 +49,21 @@ export default function Home() {
     }
   })
 
+  // PLAYER LOGIC - START
+  const [openPlayer, setOpenPlayer] = useState(0)
+
+  const togglePlayer = (index) => {
+    setOpenPlayer(index)
+  }
+
+  // const closePlayer
+
+  // PLAYER LOGIC - END
+
   return (
     <div>
       <Navigation headerInView={inView} executeScroll={executeScroll} />
       <main className={styles.main} ref={scrollRef}>
-        <motion.div
-          key={'whatever'}
-          className="progress-bar"
-          style={{ scaleX: scrollYProgress }}
-        />
         <div ref={ref}>
           <Header />
         </div>
@@ -84,6 +87,8 @@ export default function Home() {
             {contentItems.map((el) => {
               return (
                 <Cassette
+                  openPlayer={openPlayer}
+                  togglePlayer={togglePlayer}
                   key={el}
                   index={el}
                   setViewInfoIndex={setViewInfoIndex}
@@ -110,7 +115,6 @@ export default function Home() {
         </div>
         <div className={styles.volume}>
           <div
-            // className={styles.volume}
             style={{
               height: '60px',
               width: '4px',

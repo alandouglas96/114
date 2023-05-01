@@ -1,5 +1,4 @@
 .contentItem {
-  display: block;
   height: 70px;
   width: 100%;
   max-width: 450px;
@@ -7,7 +6,6 @@
   margin: 8px;
   text-align: center;
   border-radius: 10px;
-  position: relative;
   background-image: url('../../public/sala_poblenou.png');
   background-size: cover;
   background-position-y: 45%;
@@ -19,4 +17,5 @@
 
 .contentItem:hover {
   box-shadow: 0 10px 20px rgb(218, 218, 218);
+  cursor: pointer;
 }
