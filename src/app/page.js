@@ -10,12 +10,16 @@ import { ProjectInfo } from '@/components/project_info'
 import { Navigation } from '@/components/navigation'
 import { ContactInfo } from '@/components/contact_info'
 
+import { motion, useScroll } from 'framer-motion'
+
 import styles from './page.module.css'
 
 const contentItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 const contentPreviews = [1]
 
 export default function Home() {
+  const { scrollYProgress } = useScroll()
+
   const contentSectionRef = useRef(null)
 
   const [viewInfoIndex, setViewInfoIndex] = useState(0)
@@ -52,6 +56,11 @@ export default function Home() {
     <div>
       <Navigation headerInView={inView} executeScroll={executeScroll} />
       <main className={styles.main} ref={scrollRef}>
+        <motion.div
+          key={'whatever'}
+          className="progress-bar"
+          style={{ scaleX: scrollYProgress }}
+        />
         <div ref={ref}>
           <Header />
         </div>
@@ -105,7 +114,7 @@ export default function Home() {
             style={{
               height: '60px',
               width: '4px',
-              transform: `rotate(${(360 * scrollPercentage) / 100}deg)`,
+              transform: `rotate(${(270 * scrollPercentage) / 100}deg)`,
             }}
           >
             <div
