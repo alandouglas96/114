@@ -9,6 +9,7 @@ function ProjectInfo({ isShowing, index }) {
         opacity: isShowing ? '100%' : '0%',
         transition: 'all 0.2s ease-in-out',
         textAlign: 'center',
+        zIndex: 3,
       }}
       className={styles.projectInfo}
     >
@@ -42,6 +43,20 @@ function ProjectInfo({ isShowing, index }) {
           marginTop: '40px',
         }}
       />
+      {/* TESTINGAL -> Performance test */}
+      {/* <video
+        width="100%"
+        style={{ borderRadius: '5px', marginTop: '40px' }}
+        autoPlay
+        muted
+        loop
+        preload="none"
+      >
+        <source
+          src="https://alandouglasphotography.s3.eu-central-1.amazonaws.com/gif_test.mov"
+          type="video/mp4"
+        />
+      </video> */}
     </div>
   )
 }

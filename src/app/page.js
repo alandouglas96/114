@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
+import useScrollPosition from '@/hooks/useScrollPosition'
 
 import { Header } from '@/components/header'
 import { Cassette } from '@/components/cassette'
@@ -20,6 +21,13 @@ export default function Home() {
   const [viewInfoIndex, setViewInfoIndex] = useState(0)
   const [isContactOpen, setIsContactOpen] = useState(false)
 
+  const [scrollRef, scrollPercentage] = useScrollPosition()
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+    rootMargin: '-10px',
+  })
+
   const toggleCallMe = () => {
     if (isContactOpen) setIsContactOpen(false)
     else {
@@ -27,12 +35,6 @@ export default function Home() {
       executeScroll()
     }
   }
-
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0,
-    rootMargin: '-10px',
-  })
 
   const executeScroll = () =>
     contentSectionRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -49,11 +51,10 @@ export default function Home() {
   return (
     <div>
       <Navigation headerInView={inView} executeScroll={executeScroll} />
-      <main className={styles.main}>
+      <main className={styles.main} ref={scrollRef}>
         <div ref={ref}>
           <Header />
         </div>
-
         <div
           id="first-section"
           ref={contentSectionRef}
@@ -97,6 +98,20 @@ export default function Home() {
 
         <div onClick={toggleCallMe} className={styles.callMe}>
           CALL ME 🙂
+        </div>
+        <div className={styles.volume}>
+          <div
+            // className={styles.volume}
+            style={{
+              height: '60px',
+              width: '4px',
+              transform: `rotate(${(360 * scrollPercentage) / 100}deg)`,
+            }}
+          >
+            <div
+              style={{ height: '20px', width: '4px', backgroundColor: 'black' }}
+            ></div>
+          </div>
         </div>
       </main>
     </div>
