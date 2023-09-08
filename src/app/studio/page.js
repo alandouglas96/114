@@ -1,8 +1,9 @@
 'use client'
 
-import styles from './page.module.css'
 import { Navigation } from '@/components/navigation'
 import { CassetteIlustration } from '@/components/cassette_ilustration'
+
+import styles from './page.module.scss'
 
 export default function Studio() {
   return (

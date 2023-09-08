@@ -10,7 +10,7 @@ import { ProjectInfo } from '@/components/project_info'
 import { Navigation } from '@/components/navigation'
 import { ContactInfo } from '@/components/contact_info'
 
-import styles from './page.module.css'
+import styles from './page.module.scss'
 
 const contentItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 // const contentPreviews = [1]
