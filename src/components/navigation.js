@@ -2,11 +2,12 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from './navigation.module.css'
-import portRedImg from '../../public/port_red.png'
-import portWhiteImg from '../../public/port_white.png'
+import portRedImg from '../../public/red_port_clean.svg'
+import portWhiteImg from '../../public/white_port_clean.svg'
 import logoImg from '../../public/logo.png'
 import { usePathname } from 'next/navigation'
+
+import styles from './navigation.module.scss'
 
 const IMG_SIZE = 25
 
@@ -35,15 +36,18 @@ function Navigation({ headerInView, executeScroll }) {
                 The Sound
               </Link>
               <Link href="/#first-section" scroll={false}>
-                <Image
-                  src={portRedImg}
-                  alt="The Sound"
-                  height={IMG_SIZE}
-                  width={IMG_SIZE}
-                  style={{
-                    margin: '0 8px',
-                  }}
-                />
+                <div>
+                  <Image
+                    src={portRedImg}
+                    alt="The Sound"
+                    height={IMG_SIZE}
+                    width={IMG_SIZE}
+                    style={{
+                      margin: '0 8px',
+                    }}
+                  />
+                  <div className={styles.blackDot} />
+                </div>
               </Link>
             </>
           ) : (
@@ -63,10 +67,10 @@ function Navigation({ headerInView, executeScroll }) {
                   alt="The Sound"
                   height={IMG_SIZE}
                   width={IMG_SIZE}
-                  style={{
-                    margin: '0 8px',
-                  }}
                 />
+                <div className={styles.blackDotContainer}>
+                  <div className={styles.blackDot} />
+                </div>
               </div>
             </>
           )}

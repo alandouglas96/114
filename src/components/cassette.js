@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import styles from './cassette.module.css'
+import styles from './cassette.module.scss'
 
 function Cassette({ index, setViewInfoIndex, openPlayer, togglePlayer }) {
   const [isHover, setIsHover] = useState(false)
@@ -27,6 +27,7 @@ function Cassette({ index, setViewInfoIndex, openPlayer, togglePlayer }) {
         width: openPlayer === index ? '60vw' : '100%',
         display: 'flex',
         justifyContent: 'center',
+        transition: 'all 0.7s ease-in-out',
       }}
     >
       {openPlayer === index ? (

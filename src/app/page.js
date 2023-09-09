@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import useScrollPosition from '@/hooks/useScrollPosition'
@@ -10,10 +11,11 @@ import { ProjectInfo } from '@/components/project_info'
 import { Navigation } from '@/components/navigation'
 import { ContactInfo } from '@/components/contact_info'
 
+import volumeCleanSVG from '../../public/volume_clean.svg'
+
 import styles from './page.module.scss'
 
 const contentItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-// const contentPreviews = [1]
 
 export default function Home() {
   const contentSectionRef = useRef(null)
@@ -113,20 +115,35 @@ export default function Home() {
         <div onClick={toggleCallMe} className={styles.callMe}>
           CALL ME 🙂
         </div>
-        <div className={styles.volume}>
-          <div
-            style={{
-              height: '60px',
-              width: '4px',
-              transform: `rotate(${(270 * scrollPercentage) / 100}deg)`,
-            }}
-          >
-            <div
-              style={{ height: '20px', width: '4px', backgroundColor: 'black' }}
-            ></div>
-          </div>
-        </div>
+        <VolumeScroll {...{ scrollPercentage }} />
       </main>
+    </div>
+  )
+}
+
+function VolumeScroll({ scrollPercentage }) {
+  return (
+    <div className={styles.volume}>
+      <Image
+        src={volumeCleanSVG}
+        alt="Volume"
+        fill={true}
+        style={{
+          objectFit: 'contain',
+        }}
+      />
+      <div
+        style={{
+          height: '60px',
+          width: '4px',
+          marginLeft: '6px',
+          transform: `rotate(${(270 * scrollPercentage) / 100}deg)`,
+        }}
+      >
+        <div
+          style={{ height: '20px', width: '4px', backgroundColor: 'black' }}
+        ></div>
+      </div>
     </div>
   )
 }
